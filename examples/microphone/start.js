@@ -1,13 +1,12 @@
-const DeepSpeechPlugin = require('jaxcore-deepspeech-plugin');
+const BumblebeeDeepSpeech = require('../../');
 const BumbleBee = require('bumblebee-hotword-node');
 
 const bumblebee = new BumbleBee();
 bumblebee.addHotword('bumblebee');
-bumblebee.setHotword('bumblebee');
 
-DeepSpeechPlugin.start({
+BumblebeeDeepSpeech.start({
 	modelName: 'english',
-	modelPath: process.env.DEEPSPEECH_MODEL || __dirname + '/../../deepspeech-0.7.3-models', // path to deepspeech model,
+	modelPath: __dirname + '/../../deepspeech-0.7.4-models', // path to deepspeech model,
 	silenceThreshold: 200, // delay for this long before processing the audio
 	vadMode: 'VERY_AGGRESSIVE', // options are: 'NORMAL', 'LOW_BITRATE', 'AGGRESSIVE', 'VERY_AGGRESSIVE'
 	debug: true
@@ -23,9 +22,9 @@ DeepSpeechPlugin.start({
 	});
 	
 	// bumblebee emits a "data" event for every 8192 bytes of audio it records from the microphone
-	bumblebee.on('data', function(data) {
+	bumblebee.on('data', function (intData, sampleRate, hotword, float32arr) {
 		// stream the data to the deepspeech plugin
-		deepspeech.streamData(data);
+		deepspeech.streamData(intData, sampleRate, hotword, float32arr);
 	});
 
 	// bumblebee start the microphone

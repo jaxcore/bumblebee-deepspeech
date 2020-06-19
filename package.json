@@ -1,20 +1,21 @@
 {
-  "name": "jaxcore-deepspeech-plugin",
-  "version": "0.0.7",
-  "description": "Mozilla DeepSpeech speech recognition plugin for Jaxcore",
+  "name": "bumblebee-deepspeech",
+  "version": "0.0.1",
+  "description": "Mozilla DeepSpeech support for Bumblebee",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy-examples": "rm -rf docs/examples/* && mv examples/web-demo/build/ docs/examples/web-demo && mv examples/web-vocab-tester/build/ docs/examples/web-vocab-tester"
   },
-  "author": "Jaxcore",
+  "author": "Jaxcore Software Inc.",
   "license": "MIT",
   "dependencies": {
-    "csvtojson": "^2.0.8",
-    "deepspeech": "^0.7.3",
-    "jaxcore": "0.0.2",
-    "node-abi": "^2.18.0",
+    "bumblebee-hotword-node": "0.0.8",
+    "deepspeech": "^0.7.4",
+    "jaxcore": "0.0.3",
     "node-vad": "^1.1.4",
-    "pcm-convert": "^1.6.5"
+    "pcm-convert": "^1.6.5",
+    "play-sound-file": "0.0.1",
+    "speaker": "^0.5.1"
   }
 }

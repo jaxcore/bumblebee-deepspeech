@@ -1,19 +1,18 @@
 const Jaxcore = require('jaxcore');
 const jaxcore = new Jaxcore();
-// jaxcore.addPlugin(require('jaxcore-deepspeech-plugin'));
 jaxcore.addPlugin(require('../../'));
 
 const BumbleBee = require('bumblebee-hotword-node');
 const bumblebee = new BumbleBee();
 bumblebee.addHotword('bumblebee');
 
-const {playOn, playOff} = require('./sounds');
+const playSoundFile = require('play-sound-file');
 
 let speechRecognitionActive = false;
 
 jaxcore.startService('deepspeech', {
 	modelName: 'english',
-	modelPath: process.env.DEEPSPEECH_MODEL || __dirname + '/../../deepspeech-0.7.3-models', // path to deepspeech model,
+	modelPath: __dirname + '/../../deepspeech-0.7.4-models', // path to deepspeech model,
 	silenceThreshold: 200, // how many milliseconds of silence before processing the audio
 	vadMode: 'VERY_AGGRESSIVE', // options are: 'NORMAL', 'LOW_BITRATE', 'AGGRESSIVE', 'VERY_AGGRESSIVE'
 	debug: true
@@ -27,21 +26,21 @@ jaxcore.startService('deepspeech', {
 		if (speechRecognitionActive) {
 			console.log('\nSPEECH RECOGNITION OFF');
 			console.log('\nStart speech recognition by saying:', 'BUMBLEBEE');
-			playOff();
+			playSoundFile(__dirname + '/bumblebee-off.wav');
 			speechRecognitionActive = false;
 		}
 		else if (!speechRecognitionActive) {
 			console.log('\nSPEECH RECOGNITION ON');
 			console.log('Stop speech recognition by saying:', 'BUMBLEBEE');
-			playOn();
+			playSoundFile(__dirname + '/bumblebee-on.wav');
 			speechRecognitionActive = true;
 		}
-		deepspeech.streamReset(); // reset deepspeech to ignore speech recognition of the hotword that was spoken
+		deepspeech.streamReset();
 	});
 	
 	bumblebee.on('data', function (intData, sampleRate, hotword, float32arr) {
 		if (speechRecognitionActive) {
-			deepspeech.dualStreamData(intData, float32arr, 16000);
+			deepspeech.streamData(intData, sampleRate, hotword, float32arr);
 		}
 	});
 	
