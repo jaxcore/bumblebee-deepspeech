@@ -10,12 +10,12 @@
   "author": "Jaxcore Software Inc.",
   "license": "MIT",
   "dependencies": {
-    "bumblebee-hotword-node": "0.0.8",
     "deepspeech": "^0.7.4",
     "jaxcore": "0.0.3",
-    "node-vad": "^1.1.4",
-    "pcm-convert": "^1.6.5",
-    "play-sound-file": "0.0.1",
-    "speaker": "^0.5.1"
+    "node-vad": "^1.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaxcore/bumblebee-deepspeech"
   }
 }
