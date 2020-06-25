@@ -1,6 +1,6 @@
 {
   "name": "bumblebee-deepspeech",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Mozilla DeepSpeech support for Bumblebee",
   "main": "lib/index.js",
   "scripts": {

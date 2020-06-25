@@ -48,3 +48,10 @@ BumblebeeDeepSpeech.start({
 - [microphone](examples/microphone) - simple microphone recording into DeepSpeech
 
 - [hotword](examples/hotword) - use a hotword to turn DeepSpeech on and off
+
+These examples require that DeepSpeech 0.7.4 models must be downloaded or soft-linked to the root of this project.
+
+```
+wget https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.pbmm
+wget https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.scorer
+```

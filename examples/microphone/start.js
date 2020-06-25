@@ -9,7 +9,8 @@ BumblebeeDeepSpeech.start({
 	modelPath: __dirname + '/../../deepspeech-0.7.4-models', // path to deepspeech model,
 	silenceThreshold: 200, // delay for this long before processing the audio
 	vadMode: 'VERY_AGGRESSIVE', // options are: 'NORMAL', 'LOW_BITRATE', 'AGGRESSIVE', 'VERY_AGGRESSIVE'
-	debug: true
+	debug: true,
+	debugProcess: true
 })
 .then(deepspeech => {
 	// receive the speech recognition results
