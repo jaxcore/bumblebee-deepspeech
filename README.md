@@ -15,10 +15,10 @@ const BumblebeeDeepSpeech = require('bumblebee-deepspeech');
 const BumbleBee = require('bumblebee-hotword-node');
 const bumblebee = new BumbleBee();
 
-// start the service with the location to your DeepSpeech 0.7.4 models
+// start the service with the location to your DeepSpeech 0.8.0 models
 BumblebeeDeepSpeech.start({
 	modelName: 'english',
-	modelPath: __dirname + '/../../deepspeech-0.7.4-models', // path to deepspeech model,
+	modelPath: __dirname + '/../../deepspeech-0.8.0-models', // path to deepspeech model,
 	silenceThreshold: 200, // delay for this long before processing the audio
 	vadMode: 'VERY_AGGRESSIVE', // options are: 'NORMAL', 'LOW_BITRATE', 'AGGRESSIVE', 'VERY_AGGRESSIVE'
 	debug: true
@@ -49,9 +49,9 @@ BumblebeeDeepSpeech.start({
 
 - [hotword](examples/hotword) - use a hotword to turn DeepSpeech on and off
 
-These examples require that DeepSpeech 0.7.4 models must be downloaded or soft-linked to the root of this project.
+These examples require that DeepSpeech 0.8.0 models must be downloaded or soft-linked to the root of this project.
 
 ```
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.pbmm
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.scorer
+wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.0/deepspeech-0.8.0-models.pbmm
+wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.0/deepspeech-0.8.0-models.scorer
 ```

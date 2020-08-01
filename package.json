@@ -1,17 +1,16 @@
 {
   "name": "bumblebee-deepspeech",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Mozilla DeepSpeech support for Bumblebee",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "copy-examples": "rm -rf docs/examples/* && mv examples/web-demo/build/ docs/examples/web-demo && mv examples/web-vocab-tester/build/ docs/examples/web-vocab-tester"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jaxcore Software Inc.",
   "license": "MIT",
   "dependencies": {
-    "deepspeech": "^0.7.4",
-    "jaxcore": "0.0.3",
+    "deepspeech": "^0.8.0",
+    "jaxcore": "0.0.5",
     "node-vad": "^1.1.4"
   },
   "repository": {

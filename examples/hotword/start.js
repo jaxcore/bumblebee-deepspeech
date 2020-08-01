@@ -1,6 +1,8 @@
 const Jaxcore = require('jaxcore');
 const jaxcore = new Jaxcore();
-jaxcore.addPlugin(require('../../'));
+
+const BumblebeeDeepSpeech = require('bumblebee-deepspeech');
+jaxcore.addPlugin(BumblebeeDeepSpeech);
 
 const BumbleBee = require('bumblebee-hotword-node');
 const bumblebee = new BumbleBee();
@@ -12,7 +14,7 @@ let speechRecognitionActive = false;
 
 jaxcore.startService('deepspeech', {
 	modelName: 'english',
-	modelPath: __dirname + '/../../deepspeech-0.7.4-models', // path to deepspeech model,
+	modelPath: __dirname + '/../../deepspeech-0.8.0-models', // path to deepspeech model,
 	silenceThreshold: 200, // how many milliseconds of silence before processing the audio
 	vadMode: 'VERY_AGGRESSIVE', // options are: 'NORMAL', 'LOW_BITRATE', 'AGGRESSIVE', 'VERY_AGGRESSIVE'
 	debug: true
