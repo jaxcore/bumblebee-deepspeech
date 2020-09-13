@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bumblebee-deepspeech": "file:../../",
-    "bumblebee-hotword-node": "0.0.10",
+    "bumblebee-hotword-node": ">=0.1.1",
     "play-sound-file": "0.0.2"
   }
 }
